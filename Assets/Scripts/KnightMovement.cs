@@ -40,6 +40,7 @@ public class KnightMovement : MonoBehaviour
     public bool _hasGreenKey;
     public bool _hasBlueKey;
     public float _jumpHeight = 5f;
+    public int _killCount;
 
     void Start()
     {
@@ -137,20 +138,6 @@ public class KnightMovement : MonoBehaviour
         _controller.transform.rotation = Quaternion.Euler(-_yRotation, _xRotation, 0);
     }
 
-    //private void SwapWeapons()
-    //{
-    //    if (_shotgun.enabled == true)
-    //    {
-    //        _shotgun.enabled = false;
-    //        _pistol.enabled = true;
-    //    }
-    //    else if(_pistol.enabled == true)
-    //    {
-    //        _pistol.enabled = false;
-    //        _shotgun.enabled = true;
-    //    }
-    //}
-
     public void AddHealth(int amount)
     {
         _hp += amount;
@@ -159,6 +146,16 @@ public class KnightMovement : MonoBehaviour
             _hp = 100;
         }
     }
+
+    public void TakeDamage(int amount)
+    {
+        _hp -= amount;
+
+        if(_hp <= 0)
+        {
+            //end game
+        }
+    }    
 
 
     private void OnTriggerEnter(Collider collision)
@@ -183,7 +180,7 @@ public class KnightMovement : MonoBehaviour
         }
         else if (collision.tag == "Enemy")
         {
-            _hp -= collision.GetComponent<Entity>()._eData.damage;
+            _hp -= collision.GetComponent<EnemyController>().damage;
         }
 
         if (_hp <= 0)

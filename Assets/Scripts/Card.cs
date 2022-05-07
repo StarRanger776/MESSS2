@@ -6,15 +6,11 @@ public class Card : MonoBehaviour
 {
     public int _doorNumber; //1 == color1, 2 == color2, 3 == color3
 
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (collision.tag == "Player")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

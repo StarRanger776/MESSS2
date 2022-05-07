@@ -32,6 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2792640074075050206}
+  - {fileID: 2792640074329725435}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -113,8 +114,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2792640074329725435}
+  m_Children: []
   m_Father: {fileID: 2792640072277641117}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -208,14 +208,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2792640074329725434}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.1599998, z: 0}
+  m_LocalPosition: {x: 0, y: -1.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2796517700898053177}
   - {fileID: 2792640072829748705}
-  m_Father: {fileID: 2792640074075050206}
-  m_RootOrder: 0
+  - {fileID: 2796517700898053177}
+  m_Father: {fileID: 2792640072277641117}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2792640074329725380
 MonoBehaviour:
@@ -230,6 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedWeapon: 0
+  _player: {fileID: 0}
 --- !u!1001 &2792640072830148449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -247,7 +248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6db98b9e01d705045b1da80b990511e6, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6db98b9e01d705045b1da80b990511e6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -301,6 +302,29 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2792640072830148449}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2792640072830048705 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 6db98b9e01d705045b1da80b990511e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 2792640072830148449}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7486538101367186473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2792640072830048705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd04000ebacbf8d4e82af4f2ab41e592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  range: 250
+  _maxAmmo: 9
+  _currAmmo: 0
+  fpsCam: {fileID: 2792640074075050205}
 --- !u!1001 &2792640073230571159
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -318,7 +342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4021266016307886, guid: 392a05bd229c33043ae112a856120172, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4021266016307886, guid: 392a05bd229c33043ae112a856120172, type: 3}
       propertyPath: m_LocalPosition.x
@@ -380,7 +404,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2793666210557967473}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd278b0013e5a4d438a50146b05c213f, type: 3}
   m_Name: 
@@ -389,7 +413,7 @@ MonoBehaviour:
   range: 50
   fireRate: 15
   maxAmmo: 15
-  fpsCam: {fileID: 0}
+  fpsCam: {fileID: 2792640074075050205}
   animator: {fileID: 0}
 --- !u!114 &2792640073454965142
 MonoBehaviour:
@@ -403,6 +427,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9adff4a4d70f4192bdf0a003e148437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4612640607667569469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2793666210557967473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd04000ebacbf8d4e82af4f2ab41e592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 4
+  range: 350
+  _maxAmmo: 16
+  _currAmmo: 0
+  fpsCam: {fileID: 2792640074075050205}
 --- !u!4 &2796517700898053177 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4021266016307886, guid: 392a05bd229c33043ae112a856120172,

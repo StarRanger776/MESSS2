@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class DamageObject : MonoBehaviour
 {
-    /*
-    [SerializeField] private float damage;
-    [SerializeField] private float _bufferTime = 1f;
     
-    private bool _canBeDamaged;
+    public int damage;
+    public float _bufferTime;
+    
+    private bool _canBeDamaged = true;
 
     private void OnTriggerStay(Collider collision)
     {
@@ -17,7 +17,7 @@ public class DamageObject : MonoBehaviour
             if (_canBeDamaged == true)
             {
                 Debug.Log("OUCH!");
-                //collision.GetComponent<PlayerHealth>().TakeDamage(damage);
+                collision.GetComponent<KnightMovement>().TakeDamage(damage);
                 _canBeDamaged = false;
                 StartCoroutine(DamageBuffer());
             }
@@ -29,5 +29,5 @@ public class DamageObject : MonoBehaviour
         yield return new WaitForSeconds(_bufferTime);
         _canBeDamaged = true;
     }
-    */
+    
 }

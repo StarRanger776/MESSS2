@@ -6,7 +6,8 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     public float lookRadius = 10f;
-
+    public int _hp;
+    public int damage;
     Transform target;
     NavMeshAgent agent;
 
@@ -44,5 +45,16 @@ public class EnemyController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
+    }
+
+    public void TakeDamage(int amount)
+    {
+        _hp -= amount;
+
+        if (_hp <= 0)
+        {
+            target.GetComponent<KnightMovement>()._killCount++;
+            Destroy(this.gameObject);
+        }
     }
 }

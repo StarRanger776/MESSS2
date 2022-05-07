@@ -3,6 +3,7 @@ using UnityEngine;
 public class WeapSwitching : MonoBehaviour
 {
     public int selectedWeapon = 0;
+    public KnightMovement _player;
 
     // Start is called before the first frame update
     void Start()
@@ -52,9 +53,14 @@ public class WeapSwitching : MonoBehaviour
         foreach (Transform weapon in transform)
         {
             if (i == selectedWeapon)
+            {
                 weapon.gameObject.SetActive(true);
+                _player._activeGun = weapon.GetComponent<Gun>();
+            }
             else
+            {
                 weapon.gameObject.SetActive(false);
+            }
             i++;
         }
     }

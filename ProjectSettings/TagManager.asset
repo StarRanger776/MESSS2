@@ -16,6 +16,7 @@ TagManager:
   - Acid
   - weapon
   - Door
+  - Walkable
   layers:
   - Default
   - TransparentFX
